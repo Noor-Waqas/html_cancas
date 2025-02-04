@@ -25,10 +25,20 @@
        text.fillRect(20,24,100,100)
        text.strokeStyle="red";
        text.strokeRect(20,24,100,100)
+
+    //circal drow
     text.fillStyle="yellow";
-    text.arc(100,100,60,0,0.7*Math.PI)
+    text.arc(150,180,60,0,2*Math.PI)
     text.fill()
 
+       text.fillStyle="yellow";
+       text.fillRect(180,235,100,100)
+       text.strokeStyle="red";
+       text.strokeRect(180,235,100,100)
+
+  
+    
+// createcLinear Gradient color
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     var grd = ctx.createLinearGradient(0,0,200,0);
