@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <div style="display: flex; gap: 10px; flex-direction: column;">
+    <canvas width="400px"  height="400px" w style="border: 2px solid green; border-radius: 10px;" id="canvasStyles"></canvas>
+    <canvas id="myCanvas" width="400px" height="400px" style="border: 2px solid red; border-radius: 10px;"></canvas>
+    <canvas id="DrawLine" width="400px" height="400px" style="border: 2px solid blue; border-radius: 10px;"></canvas>
+    <canvas id="AddTextIn" width="400px" height="400px" style="border: 2px solid yellow; border-radius: 10px;"></canvas>
+    <canvas id="gradientColorChange" width="400px" height="400px" style="border: 4px solid white; border-radius: 10px;"></canvas>
+    <canvas id="gradientRedientColorChange" width="400px" height="400px" style="border: 4px solid rgb(18, 181, 202); border-radius: 10px;"></canvas>
+
+
+
+
+   </div>
+    <script>
+       var canvas = document.getElementById("canvasStyles")
+       var text = canvas.getContext("2d")
+       text.fillStyle="yellow";
+       text.fillRect(20,24,100,100)
+       text.strokeStyle="red";
+       text.strokeRect(20,24,100,100)
+    text.fillStyle="yellow";
+    text.arc(100,100,60,0,0.7*Math.PI)
+    text.fill()
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var grd = ctx.createLinearGradient(0,0,200,0);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    ctx.fillStyle = grd;
+    ctx.fillRect(20,10,150,80);
+
+    // line drow
+
+ var canvasData = document.getElementById("DrawLine");
+    var rectangle = canvasData.getContext("2d");
+    rectangle.moveTo(100,100)
+    rectangle.lineTo(100,300)
+    rectangle.lineTo(300,300)
+    rectangle.lineTo(100,100)
+    rectangle.strokeStyle="red";
+    rectangle.stroke();
+
+    rectangle.moveTo(150,250)
+    rectangle.lineTo(300,100)
+    rectangle.lineTo(300,300)
+    rectangle.lineTo(250,250)
+    rectangle.strokeStyle="yellow";
+    rectangle.stroke();
+   
+
+// text add in canvas 
+ var canvasTextAdd = document.getElementById("AddTextIn");
+    var TextAdd = canvasTextAdd.getContext("2d");
+    TextAdd.font="32px arial";
+    TextAdd.fillStyle="green";
+    TextAdd.fillText("Pakistan", 150,200)
+    TextAdd.strokeStyle="red";
+    TextAdd.strokeText("Pakistan", 150,200)
+
+
+    // add gradient  Color
+    var gradientColor = document.getElementById("gradientColorChange");
+    var gradient = gradientColorChange.getContext("2d");
+    var gradientColorAdd = gradient.createLinearGradient(0,0,200,0)
+    gradientColorAdd.addColorStop(0,"yellow")
+    gradientColorAdd.addColorStop(0.5,"blue")
+    gradientColorAdd.addColorStop(1,"red")
+    gradient.fillStyle = gradientColorAdd;
+    gradient.fillRect(100,100,200,200);
+
+
+
+    var RedientColorChange = document.getElementById("gradientRedientColorChange");
+    var gradientRadient = RedientColorChange.getContext("2d");
+    // var gradientColorAddDifferent = gradientRadient.createRadialGradient(x1,y1,r1,x2,y2,r2)
+    var gradientColorAddDifferent = gradientRadient.createRadialGradient(50,50,10,50,50,50)
+    gradientColorAddDifferent.addColorStop(0,"yellow")
+    gradientColorAddDifferent.addColorStop(0.5,"pink")
+    gradientColorAddDifferent.addColorStop(1,"red")
+    gradientRadient.fillStyle =gradientColorAddDifferent
+    gradientRadient.fillRect(0,0,200,200)
+    
+  
+    </script>
+</body>
+</html>
